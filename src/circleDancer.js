@@ -6,6 +6,7 @@ var makeCircleDancer = function(top, left, timeBetweenSteps) {
   this.t = 0;
   this.timeBetweenSteps = 10;
   this.step();
+  this.$node.addClass('circleDancer')
 };
 makeCircleDancer.prototype = Object.create(makeDancer.prototype);
 makeCircleDancer.prototype.constructor = makeCircleDancer;
