@@ -11,8 +11,8 @@ makeSillyDancer.prototype.constructor = makeSillyDancer;
 makeSillyDancer.prototype.step = function() {
   this.t += 0.05;
 
-  var newLeft = Math.floor(Math.random() * 1000);
-  var newTop = Math.floor(Math.random() * 1000);
+  var newLeft = Math.floor(Math.random() * $( window ).width());
+  var newTop = Math.floor(Math.random() * $( window ).height());
 
   this.$node.animate({
     top: newTop,

@@ -2,7 +2,7 @@ var makeCircleDancer = function(top, left, timeBetweenSteps) {
   makeDancer.apply(this, arguments);
   this.top = top;
   this.left = left;
-  this.radius = Math.floor(Math.random() * 100);
+  this.radius = Math.floor(Math.random() * 500);
   this.t = 0;
   this.timeBetweenSteps = 10;
   this.step();
@@ -13,8 +13,8 @@ makeCircleDancer.prototype.constructor = makeCircleDancer;
 makeCircleDancer.prototype.step = function() {
   this.t += 0.05;
 
-  var newLeft = Math.floor(this.top + (this.radius * Math.cos(this.t)));
-  var newTop = Math.floor(this.left + (this.radius * Math.sin(this.t)));
+  var newLeft = Math.floor(this.left + (this.radius * Math.cos(this.t)));
+  var newTop = Math.floor(this.top + (this.radius * Math.sin(this.t)));
 
   this.$node.animate({
     top: newTop,
