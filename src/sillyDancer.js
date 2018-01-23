@@ -1,22 +1,19 @@
-var makeSillyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.apply(this, arguments);
-  this.top = top;
-  this.left = left;
+var SillyDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.timeBetweenSteps = 10;
   this.step();
+  this.$node.addClass('sillyDancer');
 };
-makeSillyDancer.prototype = Object.create(makeDancer.prototype);
-makeSillyDancer.prototype.constructor = makeSillyDancer;
+SillyDancer.prototype = Object.create(Dancer.prototype);
+SillyDancer.prototype.constructor = SillyDancer;
 
-makeSillyDancer.prototype.step = function() {
+SillyDancer.prototype.step = function() {
   this.t += 0.05;
-
   var newLeft = Math.floor(Math.random() * $( window ).width());
   var newTop = Math.floor(Math.random() * $( window ).height());
-
   this.$node.animate({
     top: newTop,
     left: newLeft,
   }, 1000);
-  makeDancer.prototype.step.call(this);
+  Dancer.prototype.step.call(this);
 };
