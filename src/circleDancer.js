@@ -1,5 +1,4 @@
 var makeCircleDancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
   makeDancer.apply(this, arguments);
   this.top = top;
   this.left = left;
