@@ -4,7 +4,7 @@ var CircleDancer = function(top, left, timeBetweenSteps) {
   this.top = top;
   this.radius = Math.floor(Math.random() * 500);
   this.t = 0;
-  this.timeBetweenSteps = 10;
+  this.timeBetweenSteps = timeBetweenSteps / 10;
   this.step();
   this.$node.addClass('circleDancer');
   
@@ -13,6 +13,14 @@ CircleDancer.prototype = Object.create(Dancer.prototype);
 CircleDancer.prototype.constructor = CircleDancer;
 
 CircleDancer.prototype.step = function() {
+  if (this.$node.hasClass('stop')) {
+    Dancer.prototype.step.call(this);
+  } else {
+    this.move();
+  }
+};
+
+CircleDancer.prototype.move = function() {
   this.t += 0.05;
   var newLeft = Math.floor(this.left + (this.radius * Math.cos(this.t)));
   var newTop = Math.floor(this.top + (this.radius * Math.sin(this.t)));

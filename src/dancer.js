@@ -4,11 +4,11 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
-  
-  
 };
 Dancer.prototype.step = function() {
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  if (!this.$node.hasClass('stop')) {
+    setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  }
 };
 
 
@@ -18,4 +18,14 @@ Dancer.prototype.setPosition = function(top, left) {
     left: left
   };
   this.$node.css(styleSettings);
+};
+
+Dancer.prototype.lineUp = function() {
+  if (this.$node.hasClass('stop')) {
+    this.$node.animate({
+      top: 500
+    });
+  } else {
+    setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  }
 };
