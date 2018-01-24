@@ -1,13 +1,12 @@
 $(document).ready(function() {
   window.dancers = [];
-  var baseUrl = 'wow/wow';
   var wowCounter = 0;
 
   $('.addDancerButton').on('click', function(event) {
     if (wowCounter > 17) {
       wowCounter = 0;
     }
-    new Audio(baseUrl + wowCounter + '.wav').play();
+    new Audio('wow/wow' + wowCounter + '.wav').play();
 
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
@@ -29,7 +28,7 @@ $(document).ready(function() {
     if (wowCounter > 17) {
       wowCounter = 0;
     }
-    new Audio(baseUrl + wowCounter + '.wav').play();
+    new Audio('wow/wow' + wowCounter + '.wav').play();
     var left = 0;
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].$node.toggleClass('stop');

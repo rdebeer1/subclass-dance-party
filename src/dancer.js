@@ -22,7 +22,7 @@ Dancer.prototype.setPosition = function(top, left) {
 Dancer.prototype.lineUp = function(left) {
   if (this.$node.hasClass('stop')) {
     this.$node.animate({
-      top: 500,
+      top: $(window).height() / 2,
       left: left,
     });
   } else {
